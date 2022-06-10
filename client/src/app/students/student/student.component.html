@@ -1,0 +1,8 @@
+<div class="studentContainer" [id]="student._id">
+    <div class="studentProfile" (click)="onClick(student)">{{student.name[0]}}</div>
+    <div class="studentName">{{student.name}}</div>
+    <div class="studentControls">
+        <div class="studentEdit" (click)="edit($event)">edit</div>
+        <div class="studentDelete" (click)="delete($event)" >delete</div>
+    </div>
+</div>

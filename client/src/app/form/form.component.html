@@ -1,0 +1,94 @@
+<div class="formContainer">
+  <div class="formContainerCenter">
+    <h2 class="register">register form</h2>
+    <form (submit)="onSubmit()"  [formGroup]="registerForm"> 
+      <div class="nameContainer inputContainer">
+        <input
+          type="text"
+          name="name"
+          placeholder="enter name"
+          formControlName="studentName"
+        />
+        <p *ngIf="registerForm.get('studentName').invalid && registerForm.get('studentName').touched" class="errorCard">enter name</p>
+      </div>
+      <div class="mobileNumberContainer inputContainer">
+        <input
+          type="number"
+          name="mobileNumber"
+          placeholder="enter mobile number"
+          required
+         
+          formControlName="studentMobileNumber"
+       
+        />
+        <p *ngIf="registerForm.get('studentMobileNumber').invalid && registerForm.get('studentMobileNumber').touched " class="errorCard">enter minimum 10 digit number</p>
+      </div>
+      <div class="emailContainer inputContainer">
+        <input
+          type="email"
+          name="email"
+          placeholder="enter  email"
+          
+          formControlName="studentEmail"
+        />
+        <p *ngIf="registerForm.get('studentEmail').invalid && registerForm.get('studentEmail').touched" class="errorCard">enter valid email</p>
+      </div>
+      <div class="passwordContainer inputContainer">
+        <input
+          type="password"
+          name="password"
+          placeholder="enter password"
+     
+          formControlName="studentPassword"
+        />
+        <p *ngIf="registerForm.get('studentPassword').invalid && registerForm.get('studentPassword').touched " class="errorCard">enter valid password</p>
+      </div>
+      <div class="genderContainer inputContainer">
+        <div>gender:</div>
+        <div class="genderItemsContainer" *ngFor="let genderItem of gender">
+          <label [for]="genderItem">{{ genderItem }}</label>
+          <input
+            type="radio"
+            name="studentGender"
+          
+            [value]="genderItem"
+            [id]="genderItem"
+            
+            formControlName="studentGender"
+          />
+        </div>
+      </div>
+      <div class="courseContainer inputContainer">
+        <label for="course">choose your course: </label>
+        <select name="course" id="course" ngModel formControlName="studentCourse" required>
+          <option value="frontend">frontend</option>
+          <option value="backend">backend</option>
+          <option value="dataScience">data science</option>
+          <option value="machineLearning">machine learning</option>
+          <option value="devOps">dev ops</option>
+        </select>
+      </div>
+      <div class="additionalCourseContainer inputContainer">
+        <div>additional courses:</div>
+        <div
+          class="additionalCourseItemsContainer"
+          *ngFor="let additionalCourseItem of additionalCourses"
+        >
+          <label [for]="additionalCourseItem.value">{{ additionalCourseItem.value }}</label>
+          <input
+            type="checkbox"
+            name="additionalCourses"
+            [value]="additionalCourseItem.value"
+            [id]="additionalCourseItem.value"
+            [checked]="additionalCourseItem.isSelected"
+            (change)="onChange(additionalCourseItem.value)"
+          />
+        </div>
+      </div>
+      <div class="submitContainer">
+        <button type="submit" class="submitButton" [disabled]="registerForm.invalid">submit</button>
+      </div>
+    </form>
+  </div>
+ 
+</div>

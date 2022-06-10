@@ -1,0 +1,17 @@
+*{
+    text-transform: capitalize;
+}
+
+.studentsHeader{
+    text-align: center;
+    padding: 1rem 0rem;
+    background-color:#ba7dff;
+    color:white;
+}
+
+.studentsContainer{
+    padding: .5rem;
+    height: 100%;
+    overflow-y: scroll;
+}
+
