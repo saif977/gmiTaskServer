@@ -16,8 +16,8 @@ mongoose.connect(process.env.dbURI,{useNewUrlParser:true,useUnifiedTopology:true
         console.log(`server started on port: ${port}`)
     })
 }).catch(err=>console.log("error while connecting to db",err))
-app.use("/",(req,res,next)=>{
-    res.send("<h1>working successfully</h1>");
-    res.end();
-})
+// app.use("/",(req,res,next)=>{
+//     res.send("<h1>working successfully</h1>");
+//     res.end();
+// })
 app.use("",router);
